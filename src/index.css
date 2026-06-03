@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import "tailwindcss";
+
+:root {
+  --ink:    #17171A;   /* 16:1 on paper */
+  --ink-2:  #32322E;   /* 10:1 — body text */
+  --ink-3:  #5A5A54;   /*  6:1 — dates, subtitles */
+  --ink-4:  #9A9790;   /*  3:1 — placeholders */
+  --ink-5:  #D5D2CA;   /* borders & dividers */
+  --paper:  #FEFEF9;   /* card background */
+  --page:   #0F0F0E;   /* dark stage */
+  --terra:  #C4622D;   /* terracotta accent */
+  --terra-l:#D4825A;   /* lighter terracotta */
+  --terra-d:#8A3A15;   /* deep terracotta */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--page);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input, textarea {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+input::placeholder, textarea::placeholder { color: var(--ink-4); }
+
+/* ── Name ───────────────────────────────────────── */
+.cv-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink);
+  field-sizing: content;
+  min-width: 4rem;
+}
+.cv-name::placeholder { color: var(--ink-4); font-style: italic; }
+
+/* ── Header ornament ────────────────────────────── */
+.cv-ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.9rem 0 0.7rem;
+}
+.cv-ornament-line {
+  flex: 1;
+  height: 1px;
+  background: var(--ink-5);
+}
+.cv-ornament-diamond {
+  color: var(--terra);
+  font-size: 0.45rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ── Job position ───────────────────────────────── */
+.cv-position {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.cv-position::placeholder { color: var(--ink-4); }
+
+/* ── Contact ────────────────────────────────────── */
+.cv-contact {
+  font-size: 0.82rem;
+  color: var(--ink-3);
+}
+.cv-contact::placeholder { color: var(--ink-4); }
+
+/* ── Section number ─────────────────────────────── */
+.cv-section-num {
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--terra);
+  flex-shrink: 0;
+}
+
+/* ── Section label ──────────────────────────────── */
+.cv-section-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Entry group ────────────────────────────────── */
+.entry-group {
+  padding-left: 0.75rem;
+  margin-left: -0.75rem;
+  border-left: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.entry-group:focus-within { border-left-color: var(--terra-l); }
+
+/* ── Entry name ─────────────────────────────────── */
+.cv-entry-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink);
+  min-width: 0;
+}
+.cv-entry-name::placeholder { color: var(--ink-4); }
+
+/* ── Entry date ─────────────────────────────────── */
+.cv-entry-date {
+  font-size: 0.75rem;
+  color: var(--ink-3);
+  text-align: right;
+  field-sizing: content;
+  min-width: 4rem;
+}
+.cv-entry-date::placeholder { color: var(--ink-4); }
+
+/* ── Entry subtitle ─────────────────────────────── */
+.cv-entry-sub {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--ink-3);
+  min-width: 0;
+}
+.cv-entry-sub::placeholder { color: var(--ink-5); }
+
+/* ── Responsibilities ───────────────────────────── */
+.cv-resp {
+  font-size: 0.84rem;
+  color: var(--ink-2);
+  line-height: 1.72;
+  resize: none;
+  width: 100%;
+}
+.cv-resp::placeholder { color: var(--ink-4); }
+
+/* ── Skill tag ──────────────────────────────────── */
+.cv-skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.22rem 0.65rem;
+  border: 1px solid var(--ink-5);
+  font-size: 0.75rem;
+  color: var(--ink-2);
+  letter-spacing: 0.03em;
+  transition: border-color 0.15s ease;
+}
+.cv-skill-tag:hover { border-color: var(--terra-l); }
+
+/* ── Skill add input ────────────────────────────── */
+.cv-skill-input {
+  font-size: 0.75rem;
+  color: var(--ink-2);
+  border: 1px dashed var(--ink-5);
+  padding: 0.22rem 0.65rem;
+  width: 7rem;
+  transition: width 0.2s ease, border-color 0.15s ease;
+}
+.cv-skill-input:focus { width: 10rem; border-color: var(--terra-l); outline: none; }
+.cv-skill-input::placeholder { color: var(--ink-4); }
+
+/* ── Add button ─────────────────────────────────── */
+.cv-add-btn {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+.cv-add-btn:hover { color: var(--terra); }
+
+/* ── Remove button ──────────────────────────────── */
+.cv-remove-btn {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: transparent;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+}
+.entry-group:hover .cv-remove-btn { color: var(--ink-4); }
+.cv-remove-btn:hover { color: #b83232 !important; }
+
+/* ── Summary ────────────────────────────────────── */
+.cv-summary {
+  font-size: 0.85rem;
+  color: var(--ink-2);
+  line-height: 1.78;
+  resize: none;
+  width: 100%;
+}
+.cv-summary::placeholder { color: var(--ink-4); font-style: italic; }
